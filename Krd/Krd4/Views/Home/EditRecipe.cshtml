@@ -1,0 +1,24 @@
+﻿@model Krd1.Models.BeerRecipe
+
+@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+
+@using (Html.BeginForm())
+{  
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.Id)
+        @if (ViewBag.ValidationErrors)
+        {
+            <div class="alert alert-danger">
+                @Html.ValidationSummary()
+            </div>
+        }
+        @Html.LabelFor(x => x.Name) @Html.TextBoxFor(x => x.Name, new {@class = "form-control"}) 
+        @Html.LabelFor(x => x.AmountOfWater) @Html.TextBoxFor(x => x.AmountOfWater, new { @class = "form-control" })
+        @Html.LabelFor(x=>x.Recipe) @Html.TextAreaFor(x=>x.Recipe, new { @class = "form-control", rows="6"})
+        <input class="btn" type="submit" value="Ok"/>
+    </div>
+}
+
+

@@ -1,0 +1,50 @@
+﻿@model Krd1.Models.BeerRecipe
+@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+
+
+
+<h1>Receptura na piwo @Model.Name</h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Słody</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            @foreach (var maltAmount in Model.MaltAmounts)
+            {
+                <li class="list-group-item">@maltAmount.Malt.Name - @maltAmount.Amount kg </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Chmiele</div>
+    <div class="panel-body">
+        <ul class="list-group">
+            @foreach (var hopAmount in Model.HopAmounts)
+            {
+                <li class="list-group-item">@hopAmount.Hop.Name - @hopAmount.Amount g</li>
+            }
+        </ul>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Ilość wody</div>
+    <div class="panel-body">@Model.AmountOfWater litrów</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Drożdże</div> 
+    <div class="panel-body">@Model.Yeast.Name</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">Zacieranie</div>
+    <div class="panel-body">@Model.Recipe</div>
+</div>
+
+    
+
+    @Html.ActionLink("Edytuj", "EditRecipe", new { id = @Model.Id })
+
+    @Html.ActionLink("Powrót", "AllRecipies")

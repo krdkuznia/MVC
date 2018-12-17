@@ -1,0 +1,26 @@
+﻿@using Krd1.Models
+@model IEnumerable<Krd1.Models.BeerRecipe>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowAllRecipes</title>
+</head>
+<body>
+<h1>Piwne przepisy</h1>
+<div>
+    <ul>
+        @foreach (var recipe in Model)
+        {
+            <li>@recipe.Name</li>
+        }
+    </ul>
+</div>
+</body>
+</html>

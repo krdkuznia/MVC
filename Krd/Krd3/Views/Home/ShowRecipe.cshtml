@@ -1,0 +1,34 @@
+﻿@model Krd1.Models.BeerRecipe
+@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+
+
+
+<h1>Receptura na piwo @Model.Name</h1>
+
+<h2>Słody</h2>
+<ul>
+    @foreach (var maltAmount in Model.MaltAmounts)
+    {
+        <li>@maltAmount.Malt.Name - @maltAmount.Amount kg </li>
+    }
+</ul>
+
+<h2>Chmiele</h2>
+<ul>
+    @foreach (var hopAmount in Model.HopAmounts)
+    {
+        <li>@hopAmount.Hop.Name - @hopAmount.Amount g</li>
+    }
+</ul>
+
+<h2>Ilość wody</h2>
+@Model.AmountOfWater litrów
+<h2>Drożdże</h2>
+@Model.Yeast.Name
+
+<br/>
+@Html.ActionLink("Edytuj", "EditRecipe", new {id = @Model.Id})
+
+@Html.ActionLink("Powrót", "AllRecipies")

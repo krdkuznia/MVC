@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Krd1.Models.BeerRecipe>
+
+@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+
+<h1>Piwne receptury</h1>
+<ul>
+@foreach (var recipe in Model)
+{
+    <li>@Html.ActionLink(@recipe.Name, "ShowRecipe", new {id = recipe.Id})</li>
+}
+</ul>

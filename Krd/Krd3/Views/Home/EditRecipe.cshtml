@@ -1,0 +1,15 @@
+﻿@model Krd1.Models.BeerRecipe
+
+@{
+    Layout = "~/Views/_Layout1.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    
+    @Html.EditorForModel()
+   <input type="submit" value="Ok"/>
+
+}
+
+
